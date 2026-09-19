@@ -75,3 +75,65 @@
 
 </body>
 </html>
+
+
+
+
+
+  <script src="script.js"></script>
+// script.js - BNCC Landing Page Interactivity
+// Anggota 3 - Script Engineer
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Fitur Selamat Datang BNCC
+    console.log("Website BNCC berhasil terhubung dengan script.js");
+
+    // 2. Fitur Tombol Daftar BNCC
+    const btnDaftar = document.getElementById("btn-daftar");
+    if (btnDaftar) {
+        btnDaftar.addEventListener("click", function() {
+            alert("Terima kasih! Pendaftaran BNCC Chapter Malang akan segera dibuka. Stay tuned!");
+            // Efek animasi setelah klik
+            btnDaftar.innerText = "Pendaftaran Berhasil Diklik!";
+        });
+    }
+
+    // 3. Fitur Toggle Menu Mobile (Hamburger)
+    const hamburger = document.getElementById("hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", function() {
+            navMenu.classList.toggle("active");
+        });
+    }
+
+    // 4. Fitur Dark Mode untuk Website BNCC
+    const toggleTheme = document.getElementById("toggle-theme");
+    if (toggleTheme) {
+        toggleTheme.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            if (document.body.classList.contains("dark-mode")) {
+                toggleTheme.innerText = "Light Mode";
+            } else {
+                toggleTheme.innerText = "Dark Mode";
+            }
+        });
+    }
+
+    // 5. Fitur Scroll Smooth dan Tahun Otomatis di Footer
+    const year = document.getElementById("current-year");
+    if (year) {
+        year.innerText = new Date().getFullYear();
+    }
+});
+
+// Fungsi tambahan untuk validasi form BNCC
+function validateBNCCForm() {
+    const email = document.getElementById("email-bncc").value;
+    if (email === "") {
+        alert("Email tidak boleh kosong untuk daftar BNCC");
+        return false;
+    }
+    return true;
+}
